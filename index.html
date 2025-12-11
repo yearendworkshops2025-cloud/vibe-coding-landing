@@ -13,16 +13,16 @@
            MOBILE FIRST - LIGHT MODE
            ============================================ */
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --accent: #8b5cf6;
-            --pink: #ec4899;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --accent: #0ea5e9;
+            --secondary: #06b6d4;
             --white: #ffffff;
             --light: #f8fafc;
             --surface: #f1f5f9;
             --text: #1e293b;
             --text-muted: #64748b;
-            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #06b6d4 100%);
         }
 
         * {
@@ -602,6 +602,35 @@
         }
 
         /* ============================================
+           IMAGE STYLES
+           ============================================ */
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .cta-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+            display: block;
+        }
+
+        /* ============================================
            TABLET STYLES (min-width: 640px)
            ============================================ */
         @media (min-width: 640px) {
@@ -681,6 +710,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
             </a>
+            <img src="images/hero-image.png" alt="Modern tech workspace with AI-powered coding" class="hero-image">
         </div>
         <div class="scroll-hint">
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -730,6 +760,7 @@ about vibe coding. Make it slick."</span><br><br>
 <span style="color: var(--primary)">Done in 10 minutes</span>
             </div>
         </div>
+        <img src="images/vibe-coder.png" alt="Cozy workspace for vibe coding" class="section-image">
     </section>
 
     <!-- Stats Section -->
@@ -830,6 +861,7 @@ about vibe coding. Make it slick."</span><br><br>
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
+            <img src="images/success-moment.png" alt="Success! Website launched" class="cta-image">
             <h2>Ready to Catch the Vibe?</h2>
             <p>The old pre-AI world is not coming back. The future belongs to those who ship. Let's build something together.</p>
             <a href="https://www.franzai.com" target="_blank" class="cta-button">
