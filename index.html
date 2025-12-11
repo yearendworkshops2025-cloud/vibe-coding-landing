@@ -631,6 +631,99 @@
         }
 
         /* ============================================
+           CONTACT FORM STYLES
+           ============================================ */
+        .contact-section {
+            padding: 5rem 1.5rem;
+            background: var(--white);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .contact-section .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--surface);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* ============================================
            TABLET STYLES (min-width: 640px)
            ============================================ */
         @media (min-width: 640px) {
@@ -855,6 +948,40 @@ about vibe coding. Make it slick."</span><br><br>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="contact-content">
+            <p class="section-label">// Get in Touch</p>
+            <h2>Let's Vibe Together</h2>
+            <p class="subtitle">Questions? Ideas? Just want to say hi? Drop me a message!</p>
+
+            <form class="contact-form" action="https://formsubmit.co/fe@f19n.com" method="POST">
+                <!-- Formsubmit config -->
+                <input type="hidden" name="_subject" value="New Vibe Coding Contact!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yearendworkshops2025-cloud.github.io/vibe-coding-landing/?sent=true">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your vibe coding dreams..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+                <p class="form-note">Powered by Formsubmit.co - no server needed!</p>
+            </form>
         </div>
     </section>
 
