@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding | You Don't Need to Code. You Need to Vibe.</title>
+    <meta name="description" content="Stop coding. Start vibing. Learn how AI is revolutionizing software development with Franz Enzenhofer's workshops.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           MOBILE FIRST - LIGHT MODE
+           ============================================ */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #8b5cf6;
+            --pink: #ec4899;
+            --white: #ffffff;
+            --light: #f8fafc;
+            --surface: #f1f5f9;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 1.5rem 3rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .hero-cta svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(5px);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--text-muted);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ============================================
+           QUOTE SECTION
+           ============================================ */
+        .quote-section {
+            padding: 4rem 1.5rem;
+            background: var(--surface);
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: -1.5rem;
+            left: -0.5rem;
+            opacity: 0.3;
+        }
+
+        .quote-author {
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           WHAT IS VIBE CODING
+           ============================================ */
+        .what-section {
+            padding: 5rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .what-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .what-section h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .what-content {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .code-comparison {
+            background: var(--surface);
+            border-radius: 1rem;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .code-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .code-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+        }
+
+        .code-tab.active {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .code-tab.old::before { content: '😰 '; }
+        .code-tab.new::before { content: '😎 '; }
+
+        .code-content {
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            display: none;
+            background: var(--white);
+        }
+
+        .code-content.active {
+            display: block;
+        }
+
+        .code-content.old-way {
+            color: #dc2626;
+        }
+
+        .code-content.new-way {
+            color: #16a34a;
+        }
+
+        /* ============================================
+           STATS SECTION
+           ============================================ */
+        .stats-section {
+            padding: 4rem 1.5rem;
+            background: var(--surface);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .stat-source {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            opacity: 0.7;
+        }
+
+        /* ============================================
+           HUMOR SECTION - VIBE CODER'S MANIFESTO
+           ============================================ */
+        .humor-section {
+            padding: 5rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .humor-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .humor-section .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .humor-cards {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .humor-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: left;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .humor-card:hover {
+            transform: translateX(5px);
+        }
+
+        .humor-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .humor-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .humor-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           CREDIBILITY SECTION
+           ============================================ */
+        .credibility-section {
+            padding: 5rem 1.5rem;
+            background: var(--surface);
+        }
+
+        .credibility-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .credibility-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .credibility-section h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .credibility-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .credentials {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .credential-icon {
+            font-size: 1.5rem;
+        }
+
+        .credential-text {
+            font-size: 0.95rem;
+        }
+
+        .credential-text strong {
+            color: var(--text);
+            display: block;
+        }
+
+        .credential-text span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            padding: 5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient);
+            opacity: 0.05;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--gradient);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cta-subtext {
+            margin-top: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            background: var(--surface);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ============================================
+           TABLET STYLES (min-width: 640px)
+           ============================================ */
+        @media (min-width: 640px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .humor-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .credentials {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quote {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ============================================
+           DESKTOP STYLES (min-width: 1024px)
+           ============================================ */
+        @media (min-width: 1024px) {
+            nav {
+                padding: 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .quote {
+                font-size: 1.6rem;
+            }
+
+            .what-section h2,
+            .humor-section h2,
+            .credibility-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">VIBE CODING</div>
+        <a href="https://www.franzai.com" target="_blank" class="nav-cta">Start Learning</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">// coined by Andrej Karpathy, Feb 2025</div>
+            <h1>You Don't Need to Code.<br><span>You Need to Vibe.</span></h1>
+            <p class="hero-subtitle">The hottest new programming language is English. Let AI write the code while you focus on what matters: your ideas.</p>
+            <a href="https://www.franzai.com" target="_blank" class="hero-cta">
+                Learn Vibe Coding
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+            </a>
+        </div>
+        <div class="scroll-hint">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Karpathy Quote -->
+    <section class="quote-section">
+        <blockquote class="quote">
+            Fully give in to the vibes, embrace exponentials, and forget that the code even exists.
+        </blockquote>
+        <p class="quote-author">— Andrej Karpathy, Co-founder of OpenAI</p>
+    </section>
+
+    <!-- What is Vibe Coding -->
+    <section class="what-section">
+        <p class="section-label">// What is it?</p>
+        <h2>Coding Without <span>Coding</span></h2>
+        <p class="what-content">
+            Vibe coding is a revolutionary approach where you describe what you want in plain English,
+            and AI builds it for you. No syntax errors. No Stack Overflow rabbit holes.
+            Just you and your ideas, brought to life at the speed of thought.
+        </p>
+
+        <div class="code-comparison">
+            <div class="code-tabs">
+                <button class="code-tab old active" onclick="showCode('old')">Old Way</button>
+                <button class="code-tab new" onclick="showCode('new')">Vibe Way</button>
+            </div>
+            <div class="code-content old-way active" id="old-code">
+// 4 years of CS degree<br>
+// 6 months learning React<br>
+// 47 Stack Overflow tabs open<br>
+// 3 energy drinks consumed<br>
+// Still debugging undefined<br><br>
+<span style="color: var(--text-muted)">const happiness = null;</span>
+            </div>
+            <div class="code-content new-way" id="new-code">
+// Tell AI what you want<br>
+// Watch it build your app<br>
+// Ship to production<br>
+// Go touch grass<br><br>
+<span style="color: var(--text-muted)">"Hey Claude, build me a landing page<br>
+about vibe coding. Make it slick."</span><br><br>
+<span style="color: var(--primary)">Done in 10 minutes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">25%</div>
+                <div class="stat-label">of Y Combinator W25 startups have 95% AI-generated code</div>
+                <div class="stat-source">Source: Y Combinator</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.5M+</div>
+                <div class="stat-label">views on Karpathy's original vibe coding post</div>
+                <div class="stat-source">Source: X/Twitter</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10x</div>
+                <div class="stat-label">faster prototyping with AI-assisted development</div>
+                <div class="stat-source">Source: Industry Reports</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2025</div>
+                <div class="stat-label">The year vibe coding went mainstream</div>
+                <div class="stat-source">Source: WSJ, Fast Company</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Humor Section - Vibe Coder's Manifesto -->
+    <section class="humor-section">
+        <p class="section-label">// The Rules</p>
+        <h2>The Vibe Coder's Manifesto</h2>
+        <p class="subtitle">A totally serious guide to modern software development</p>
+        <div class="humor-cards">
+            <div class="humor-card">
+                <div class="emoji">🧘</div>
+                <h3>We Don't Debug</h3>
+                <p>We copy-paste the error message back to Claude and ask nicely. Works 99% of the time.</p>
+            </div>
+            <div class="humor-card">
+                <div class="emoji">🚀</div>
+                <h3>Ship First, Understand Later</h3>
+                <p>The code works. Do I know why? No. Does the user care? Also no.</p>
+            </div>
+            <div class="humor-card">
+                <div class="emoji">📚</div>
+                <h3>Documentation is Optional</h3>
+                <p>The AI can explain it later. Or rewrite it. Whatever's faster.</p>
+            </div>
+            <div class="humor-card">
+                <div class="emoji">☕</div>
+                <h3>Coffee is Still Required</h3>
+                <p>Some traditions are sacred. The vibes don't replace caffeine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Section -->
+    <section class="credibility-section">
+        <div class="credibility-content">
+            <p class="section-label">// Your Guide</p>
+            <h2>Learn From <span>20+ Years</span> of Experience</h2>
+            <p class="credibility-subtitle">Franz Enzenhofer has been in the digital trenches since before "cloud" meant anything other than weather.</p>
+
+            <div class="credentials">
+                <div class="credential">
+                    <span class="credential-icon">🎯</span>
+                    <div class="credential-text">
+                        <strong>AI-First Strategy Pioneer</strong>
+                        <span>Helping businesses transform with AI since day one</span>
+                    </div>
+                </div>
+                <div class="credential">
+                    <span class="credential-icon">🏢</span>
+                    <div class="credential-text">
+                        <strong>Corporate Workshop Leader</strong>
+                        <span>Training teams at companies across Europe</span>
+                    </div>
+                </div>
+                <div class="credential">
+                    <span class="credential-icon">⚡</span>
+                    <div class="credential-text">
+                        <strong>Zero Coding Required</strong>
+                        <span>You don't need to be technical to vibe</span>
+                    </div>
+                </div>
+                <div class="credential">
+                    <span class="credential-icon">🌍</span>
+                    <div class="credential-text">
+                        <strong>Vienna, Berlin, Zurich & More</strong>
+                        <span>In-person and virtual workshops available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Catch the Vibe?</h2>
+            <p>The old pre-AI world is not coming back. The future belongs to those who ship. Let's build something together.</p>
+            <a href="https://www.franzai.com" target="_blank" class="cta-button">
+                Visit FranzAI.com
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </a>
+            <p class="cta-subtext">// workshops | consulting | ai transformation</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Built with vibes by <a href="https://www.franzai.com" target="_blank">Franz Enzenhofer</a> | The future is unwritten. Let's vibe it into existence.</p>
+    </footer>
+
+    <script>
+        // Code comparison toggle
+        function showCode(type) {
+            document.querySelectorAll('.code-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.code-content').forEach(content => content.classList.remove('active'));
+
+            document.querySelector(`.code-tab.${type}`).classList.add('active');
+            document.getElementById(`${type}-code`).classList.add('active');
+        }
+
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Make nav solid on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
